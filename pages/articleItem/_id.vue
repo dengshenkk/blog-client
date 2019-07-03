@@ -5,10 +5,10 @@
 
     <div class="comment-box">
       <h3>最新留言</h3>
-      <p v-for="(item, index) of comments" :key="index">
+      <div v-for="(item, index) of comments" :key="index" class="comment-item">
         {{item.commentContent}}
-        <span>{{item.createTime | formatDate}}</span>
-      </p>
+        <p>{{item.createTime | formatDate}}来自大侠{{item.userName}}</p>
+      </div>
       <d-comment :article="article" @finish="init"></d-comment>
     </div>
   </div>
@@ -74,6 +74,9 @@ export default {
     .comment-box {
       width: 600px;
       margin: 100px auto;
+      .comment-item{
+        padding-top: 24px;
+      }
     }
 
   }

@@ -1,7 +1,9 @@
 <template>
   <div class="d-header-wrap">
     <div class="logo"></div>
-    <div class="title">恨铁不成金</div>
+    <div class="title">
+      <nuxt-link to="/">My Blog</nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -34,6 +36,7 @@ export default {
 
 <style lang="scss" scoped>
   .d-header-wrap {
+    padding: 0 24px;
     background-color: #fff;
     position: fixed;
     z-index: 2;
@@ -41,6 +44,5 @@ export default {
     display: flex;
     align-items: center;
     width: 100%;
-    box-shadow: 0px 4px 4px red;
   }
 </style>
