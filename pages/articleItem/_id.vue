@@ -1,0 +1,72 @@
+<template>
+  <div class="article-wrap">
+    <h1>{{article.title}}</h1>
+    <p>{{article.content}}</p>
+
+    <div class="comment-box">
+      <p v-for="(item, index) of comments" :key="index">
+        {{item.commentContent}}
+        <span>{{item.createTime | formatDate}}</span>
+      </p>
+    </div>
+    <d-comment :article="article" @finish="init"></d-comment>
+  </div>
+</template>
+
+<script>
+import DHeader from '../../components/d-header'
+import DComment from '../../components/d-comment'
+import {formatDate} from '../../utils/date'
+
+/**
+ * create by    dengShen
+ * createTime   2019/7/3 10:39:24
+ */
+
+export default {
+  name: 'articleItem',
+  components: {DComment, DHeader},
+  computed: {},
+  data() {
+    return {
+      routeQuery: this.$route.query,
+      article: {},
+      comments: []
+    }
+  },
+  created() {
+  },
+  filters: {
+    formatDate: function (value) {
+      return value && formatDate(value)
+    }
+  },
+  asyncData({app}) {
+    console.log(app)
+    let id = app.router.currentRoute.params.id
+    return id && app.$axios.get('/article/' + id).then(res => {
+      console.log(res)
+      return {
+        article: res.data.data.article,
+        comments: res.data.data.comments
+      }
+    })
+  },
+  mounted() {
+  },
+  methods: {
+    init() {
+      this.$axios.get(`/article/${this.article.id}`).then(res => {
+        this.article = res.data.data.article
+        this.comments = res.data.data.comments
+      })
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+  .article-wrap {
+
+  }
+</style>
