@@ -35,7 +35,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     ['@nuxtjs/axios', {
       // baseURL: 'http://34.80.255.76:9999'
-      baseURL: 'http://localhost:9999',
+      baseURL: 'http://34.80.255.76:9999',
       contentType : 'application/json'
     }],
     '@nuxtjs/pwa'
@@ -46,7 +46,7 @@ export default {
   */
   axios: {
     // proxy: true,
-    baseURL: 'http://34.80.255.76:9999'
+    // baseURL: 'http://34.80.255.76:9999'
     // // prefix: '/api', // it not work
     // credentials: true,
   },
@@ -70,6 +70,6 @@ export default {
     }
   },
   env: {
-    baseURL: 'http://34.80.255.76:9999'
+    // baseURL: 'http://34.80.255.76:9999'
   }
 }
