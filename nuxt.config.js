@@ -46,7 +46,7 @@ export default {
   */
   axios: {
     // proxy: true,
-    // baseURL: 'http://34.80.255.76:9999'
+    baseURL: 'http://34.80.255.76:9999'
     // // prefix: '/api', // it not work
     // credentials: true,
   },
@@ -70,6 +70,6 @@ export default {
     }
   },
   env: {
-    // baseURL: 'http://34.80.255.76:9999'
+    baseURL: 'http://34.80.255.76:9999'
   }
 }
