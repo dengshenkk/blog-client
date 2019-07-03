@@ -1,11 +1,11 @@
 <template>
   <div class="d-article-wrap">
     <div class="article-header">
-      <span>发布日期{{article.createTime | formatDate}}</span>
-      <span>{{article.title}}</span>
+      <h2 class="title">{{article.title}}</h2>
+      <span class="time">发布日期{{article.createTime | formatDate}}</span>
+
     </div>
-    <div class="article-body" v-html="article.content">
-    </div>
+    <div class="article-body" v-html="article.content"></div>
 
   </div>
 </template>
@@ -56,6 +56,6 @@ export default {
 
 <style lang="scss" scoped>
   .d-article-wrap {
-
+    cursor: pointer;
   }
 </style>

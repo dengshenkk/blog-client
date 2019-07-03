@@ -4,12 +4,13 @@
     <p>{{article.content}}</p>
 
     <div class="comment-box">
+      <h3>最新留言</h3>
       <p v-for="(item, index) of comments" :key="index">
         {{item.commentContent}}
         <span>{{item.createTime | formatDate}}</span>
       </p>
+      <d-comment :article="article" @finish="init"></d-comment>
     </div>
-    <d-comment :article="article" @finish="init"></d-comment>
   </div>
 </template>
 
@@ -67,6 +68,13 @@ export default {
 
 <style lang="scss" scoped>
   .article-wrap {
+    text-align: center;
+    padding: 24px;
+
+    .comment-box {
+      width: 600px;
+      margin: 100px auto;
+    }
 
   }
 </style>
